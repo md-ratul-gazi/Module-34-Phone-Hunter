@@ -32,7 +32,7 @@
     </style>
     <!-- Font family -->
   </head>
-  <body class="poppins">
+  <body class="poppins bg-[#ffffff]">
     <!-- Header section starts here -->
     <header>
       <!-- Banner section starts here -->
@@ -98,17 +98,20 @@
     <!-- Main section starts here -->
     <main>
       <!-- Search section starts here -->
-      <section class="text-center mt-[120px]">
+      <section class="text-center pt-[120px] mb-12">
         <p class="text-[#100F0F] text-[35px] font-semibold mb-8">
           Search your phone
         </p>
         <div>
           <input
-            class="py-4 pl-7 text-xl font-normal leading-7 pr-[480px] rounded-lg bg-[#100FFF08]"
+            id="search-input-field"
+            class="py-4 focus:outline-none pl-7 text-xl font-normal leading-7 pr-[480px] rounded-lg bg-[#100FFF08]"
             type="text"
+            value="iphone"
             placeholder="Search your phone"
           />
           <button
+            onclick="searchPhones()"
             class="text-[#FFF] text-xl px-10 py-4 font-bold rounded-r-lg bg-[#0D6EFD] -ml-24"
           >
             Search
@@ -117,11 +120,50 @@
       </section>
       <!-- Search section ends here -->
 
+      <!-- Loading spinner -->
+      <div class="text-center my-20" id="loading">
+        <span
+          id="loading-spinner"
+          class="hidden loading loading-spinner loading-lg text-[#0d6efd]"
+        ></span>
+      </div>
+      <!-- Loading spinner -->
+
       <!-- Search result section starts here -->
       <section>
-        <p class="text-6xl">search result</p>
+        <div id="alert"></div>
+        <div
+          id="search-phones"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-[150px]"
+        ></div>
+
+        <!-- Show All button starts here -->
+        <div class="text-center">
+          <button
+            id="show-all"
+            onclick="showAll()"
+            class="text-[#FFF] text-xl px-9 py-4 font-bold rounded-lg bg-[#0D6EFD] mt-12 mb-[120px]"
+          >
+            Show All
+          </button>
+        </div>
+        <!-- Show All button ends here -->
       </section>
       <!-- Search result section ends here -->
+
+      <!-- Show modal -->
+      <!-- Open the modal using ID.showModal() method -->
+      <dialog id="show_details_modal_5" class="modal modal-bottom sm:modal-middle">
+        <form method="dialog" class="modal-box lg:max-w-[752px]">
+          <div id="modal-container">
+
+          </div>
+          <div class="modal-action">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="text-[#FFF] text-xl font-bold bg-[#DC3545] rounded-lg px-12 py-4">Close</button>
+          </div>
+        </form>
+      </dialog>
     </main>
     <!-- Main section ends here -->
 
